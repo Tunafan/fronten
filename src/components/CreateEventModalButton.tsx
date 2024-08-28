@@ -63,10 +63,6 @@ const CreateEventModalButton: React.FC = () => {
     event.preventDefault();
 
     const formData = new FormData(event.target as HTMLFormElement);
-    console.log("discipline", formData.get("discipline"));
-    console.log("ageGroup", formData.get("ageGroup"));
-    console.log("field", formData.get("field"));
-    console.log("timeSlot", formData.get("timeSlot"));
     const newEvent = {
       description: formData.get("description") as string,
       discipline: Number(formData.get("discipline")), // Sends discipline ID as number
