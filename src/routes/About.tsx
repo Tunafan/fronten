@@ -1,9 +1,10 @@
+import CreateEventModalButton from "../components/CreateEventModalButton";
+
 const About = () => {
   return (
     <div>
-      <h1>Tjek os ud</h1>
-      <p>Vi har lavet det her</p>
-      <p>og ville gerne have brugt call back-funktioner!</p>¨
+      <h1>Om os</h1>
+      <CreateEventModalButton />
     </div>
   );
 };

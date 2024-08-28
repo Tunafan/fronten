@@ -1,27 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-interface Event {
-  id: number;
-  disciplineID: {
-    id: number;
-    name: string;
-    description: string;
-  };
-  gender: boolean;
-  ageGroup: {
-    id: number;
-    name: string;
-    description: string;
-  };
-  date: string;
-  startTime: string;
-  field: {
-    id: number;
-    fieldType: string;
-  };
-  description: string;
-}
+import { Event } from "../config/types";
 
 const EventList: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([]);
@@ -54,16 +33,19 @@ const EventList: React.FC = () => {
 
   return (
     <div>
-      <h2>Events List</h2>
       <ul>
         {events.map((event) => (
           <li key={event.id}>
             <h3>{event.description}</h3>
-            <p>Discipline: {event.disciplineID.name}</p>
-            <p>Gender: {event.gender ? "Female" : "Male"}</p>
-            <p>Age Group: {event.ageGroup.name}</p>
-            <p>Date: {event.date}</p>
-            <p>Start Time: {event.startTime}</p>
+            <p>Disciplin: {event.discipline.name}</p>
+            <p>
+              Køn og aldersgruppe: {event.gender ? "Kvinder" : "Mænd"}{" "}
+              {event.ageGroup.name}
+            </p>
+            <p>
+              Hvornår: Dag {event.timeSlot.day} kl {event.timeSlot.startTime}
+            </p>
+            <p>Varighed: {event.discipline.duration} minutter</p>
             <p>Field: {event.field.fieldType}</p>
           </li>
         ))}
